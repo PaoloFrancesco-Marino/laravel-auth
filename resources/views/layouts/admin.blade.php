@@ -1,4 +1,4 @@
-@include('shared.header')
+@include('shared.header-admin')
 
         <main class="py-4">
             @yield('content')
