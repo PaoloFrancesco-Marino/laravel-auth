@@ -12,6 +12,11 @@ use Illuminate\Support\Str;
 
 use Illuminate\Support\Facades\Storage;
 
+use App\Mail\NewPost;
+use App\Mail\UpdatedPost;
+use Illuminate\Support\Facades\Mail;
+
+
 class PostController extends Controller
 {
 
@@ -67,6 +72,9 @@ class PostController extends Controller
         $saved = $newPost->save();
 
         if($saved) {
+
+            Mail::to('user@test.com')->send(new NewPost($newPost));
+
             return redirect()->route('admin.posts.show', $newPost->id);
         }
         
@@ -126,6 +134,9 @@ class PostController extends Controller
         $updated = $post->update($data);
 
         if($updated) {
+
+            Mail::to('user@gmail.com')->send(new UpdatedPost($post));
+
             return redirect()->route('admin.posts.show', $post->id);
         }
 
