@@ -37,5 +37,12 @@
                 </tr>
             </tbody>
         </table>
+
+        <h3 class="mb-4">Image uploaded</h3>
+        @if (!empty($post->path_img))
+            <img src="{{ asset('storage/' . $post->path_img) }}" alt="{{ $post->title }}">
+        @else
+            <div class="no-img-text">No Image Uploaded</div>
+        @endif
     </div>
 @endsection

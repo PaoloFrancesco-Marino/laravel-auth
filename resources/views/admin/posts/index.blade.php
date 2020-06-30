@@ -49,8 +49,6 @@
             </tbody>
         </table>
 
-        
-
         <div class="wrap-pagination mt-5">
             {{ $posts->links() }}
         </div>
